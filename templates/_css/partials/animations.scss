@@ -1,0 +1,120 @@
+@keyframes rotate {
+  from {transform: rotateZ(0deg);}
+  to {transform: rotateZ(-360deg);}
+}
+
+@keyframes simpleSlideLeft {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+@keyframes simpleSlideRight {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+@keyframes slideRight {
+	0% {
+		transform: translateX(0);
+	}
+
+	15% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+
+	22.5% {
+		opacity: 0;
+	}
+
+	33.333333% {
+		transform: translateX(200%);
+		opacity: 1;
+	}
+
+	48.333333% {
+		transform: translateX(200%);
+		opacity: 1;
+	}
+
+	55.833333% {
+		opacity: 0;
+	}
+
+	66.666666% {
+		transform: translateX(400%);
+		opacity: 1;
+	}
+
+	81.888888% {
+		transform: translateX(400%);
+		opacity: 1;
+	}
+
+	89.388888% {
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(600%);
+	}
+}
+
+@keyframes slideRightLeaderboard {
+	0% {
+		transform: translateX(0);
+	}
+
+	15% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+
+	22.5% {
+		opacity: 0;
+	}
+
+	33.333333% {
+		transform: translateX(200%);
+		opacity: 1;
+	}
+
+	48.333333% {
+		transform: translateX(200%);
+		opacity: 1;
+	}
+
+	55.833333% {
+		opacity: 0;
+	}
+
+	66.666666% {
+		transform: translateX(400%);
+		opacity: 1;
+	}
+
+	100% {
+		transform: translateX(400%);
+		opacity: 1;
+	}
+}
+
+@keyframes slideUp {
+	0% {
+		transform: translateY(100%) translateY(-120px);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}

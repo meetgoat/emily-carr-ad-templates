@@ -1,0 +1,319 @@
+// Variables to change the ad style.
+$backgroundColor: #5E366E;
+$textColor: white;
+
+// Variables to disable animation for debugging. Change these to false to stop the animation.
+$animate: true;
+$forwards: true;
+
+@import 'partials/animations.scss';
+
+body {
+	color: $textColor;
+	margin: 0;
+}
+
+h1 {
+	color: $textColor;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 600;
+	font-size: 21px;
+	line-height: 24px;
+	margin: 0;
+
+	&.small {
+		font-size: 13px;
+		line-height: 16px;
+	}
+}
+
+#ad {
+	background: $backgroundColor;
+	box-sizing: border-box;
+	overflow: hidden;
+	position: relative;
+
+	&::after,
+	&::before {
+		background-image:url(assets/pattern.svg);
+		background-size:contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		content: "";
+		display: block;
+		height: 60px;
+		width: 90px;
+		opacity: 0.6;
+		position: absolute;
+		z-index: 3;
+	}
+
+	> .bg-image {
+		position: absolute;
+		z-index: 2;
+
+    > img {
+    	width: 100%;
+    	height: auto;
+    }
+
+    &::before {
+    	@if $animate {
+    		animation: rotate 18s linear;
+    	}
+    	background-image:url(assets/shape.svg);
+    	background-size:contain;
+    	background-repeat: no-repeat;
+    	background-position: center;
+    	content: "";
+    	display: block;
+    	opacity: 0.8;
+    	position: absolute;
+    }
+	}
+
+	> .logo-cta {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+
+	> .text {
+		@if $animate {
+			animation: slideRight 18s;
+		}
+		@if $forwards{
+			animation-fill-mode: forwards;
+		}
+
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 4;
+
+		div:not(:first-child) {
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+		}
+
+		div:nth-of-type(2) {
+			transform: translateX(-200%);
+		}
+
+		div:nth-of-type(3) {
+			transform: translateX(-400%);
+		}
+	}
+
+	&.big-box {
+		&::after {
+			@if $animate {
+				animation: simpleSlideLeft 18s;
+			}
+			@if $forwards{
+				animation-fill-mode: forwards;
+			}
+			top: -30px;
+			right: -90px;
+		}
+
+		&::before {
+			@if $animate {
+				animation: simpleSlideRight 18s;
+			}
+			@if $forwards{
+				animation-fill-mode: forwards;
+			}
+			top: 50%;
+			left: 32.5%;
+		}
+
+		> .bg-image {
+			width: 165px;
+	    height: 165px;
+	    top: 100px;
+	    left: 180px;
+
+	    &::before {
+	    	top: -20px;
+	    	right: -20px;
+	    	bottom: -20px;
+	    	left: -20px;
+	    }
+		}
+
+		> .logo-cta {
+			@if $animate {
+				animation: slideUp 3s;
+			}
+			animation-delay: 15s;
+			@if $forwards{
+				animation-fill-mode: forwards;
+			}
+			padding: 30px;
+			transform: translateY(100%) translateY(-120px);
+
+			> img:nth-of-type(1) {
+				height: 60px;
+				width: auto;
+			}
+
+			> img:nth-of-type(2) {
+				position: absolute;
+				bottom: 30px;
+				left: 30px;
+				height: auto;
+				width: 120px;
+			}
+		}
+
+		> .text {
+			> div {
+				padding: 30px 90px 30px 30px;
+			}
+		}
+	}
+
+	&.leaderboard {
+		&::after {
+			// @if $animate {
+			// 	animation: simpleSlideLeft 18s;
+			// }
+			// @if $forwards{
+			// 	animation-fill-mode: forwards;
+			// }
+			top: -30px;
+			right: 135px;
+			z-index: 1;
+		}
+
+		&::before {
+			@if $animate {
+				animation: simpleSlideRight 18s;
+			}
+			@if $forwards{
+				animation-fill-mode: forwards;
+			}
+			top: 50%;
+			left: 35%;
+		}
+
+		> .bg-image {
+			width: 180px;
+	    height: 180px;
+	    top: -45px;
+	    left: 360px;
+
+	    &::before {
+	    	top: -15px;
+	    	right: -15px;
+	    	bottom: -15px;
+	    	left: -15px;
+	    }
+		}
+
+		> .logo-cta {
+			left: auto;
+			top: 15px;
+			right: 30px;
+			bottom: 15px;
+
+			> img {
+				height: 60px;
+				width: auto;
+			}
+		}
+
+		> .text {
+			@if $animate {
+				animation: slideRightLeaderboard 18s;
+			}
+			@if $forwards{
+				animation-fill-mode: forwards;
+			}
+
+			> div {
+				padding: 21px 30px;
+
+				&:nth-of-type(3) {
+					display: flex;
+					align-items: center;
+
+					> img {
+						height: 30px;
+						margin-left: 30px;
+					}
+				}
+			}
+		}
+	}
+
+	&.mobile-leaderboard {
+		&::after,
+		&::before {
+			height: 60px;
+			width: 60px;
+		}
+
+		&::after {
+			top: -30px;
+			right: -30px;
+		}
+
+		&::before {
+			top: 20px;
+			right: 100px;
+		}
+
+		> .bg-image {
+			width: 120px;
+	    height: 120px;
+	    top: -30px;
+	    left: 185px;
+
+	    &::before {
+	    	top: -12.5px;
+	    	right: -12.5px;
+	    	bottom: -12.5px;
+	    	left: -12.5px;
+	    }
+		}
+
+		> .logo-cta {
+			@if $animate {
+				animation: simpleSlideRight 3s;
+			}
+			animation-delay: 15s;
+			@if $forwards{
+				animation-fill-mode: forwards;
+			}
+			margin-left: -100%;
+			left: -100%;
+			right: 100%;
+
+			> img:nth-of-type(1) {
+				margin: 10px;
+				height: 30px;
+				width: auto;
+			}
+
+			> img:nth-of-type(2) {
+				margin: 15px 0 15px 10px;
+				height: 20px;
+				width: auto;
+			}
+		}
+
+		> .text {
+			> div {
+				padding: 10px 15px;
+			}
+		}
+	}
+}

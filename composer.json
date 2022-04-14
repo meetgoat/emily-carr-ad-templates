@@ -1,0 +1,7 @@
+{
+    "require": {
+        "twig/twig": "^3.3",
+        "scssphp/scssphp": "^1.10",
+        "padaliyajay/php-autoprefixer": "^1.3"
+    }
+}

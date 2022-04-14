@@ -1,0 +1,26 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="ad.size" content="width={{width}}, height={{height}}">
+    <title>Ad Banner: {{width}}x{{height}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600&display=swap" rel="stylesheet">
+		<script type="text/javascript">
+      var clickTag = "https://www.ecuad.ca/";
+   	</script>
+		<style>{{ source('_css/main.css')|indent(8) }}</style>
+		{% block head %}{% endblock %}
+</head>
+<body>
+	<a href="javascript:void(window.open(clickTag))">
+		<div id="ad" class="{{ class }}" style="height:{{ height }}px;width:{{ width }}px;">
+		{% block content %}
+		{% endblock %}
+		</div>
+	</a>
+	{% block footer %}{% endblock %}
+</body>
+</html>
